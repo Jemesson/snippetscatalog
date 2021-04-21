@@ -16,17 +16,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
 
         guard
-            
             let splitViewController = window?.rootViewController as? UISplitViewController,
-            let leftNavController = splitViewController.viewControllers.first as? UINavigationController,
-            let masterViewController = leftNavController.viewControllers.first as? MasterTableViewController,
-            let detailNavViewController = splitViewController.viewControllers.last as? UINavigationController,
-            let detailViewController = detailNavViewController.viewControllers.first as? DetailViewController
-            
+            let firstMasterNavController = splitViewController.viewControllers.first as? UINavigationController,
+            let tagsViewController = firstMasterNavController.viewControllers.first as? TagsViewController,
+            let secondSplitViewController = splitViewController.viewControllers.last as? UISplitViewController,
+            let middleNavController = secondSplitViewController.viewControllers.first as? UINavigationController,
+            let masterViewController = middleNavController.viewControllers.first as? MasterTableViewController,
+            let detailViewController = secondSplitViewController.viewControllers.last as? DetailViewController
         else { fatalError() }
         
         let firstSnippet = masterViewController.snippets.first
-            detailViewController.snippet = firstSnippet
-            masterViewController.delegate = detailViewController
+        detailViewController.snippet = firstSnippet
+        masterViewController.delegate = detailViewController
+        tagsViewController.delegate = masterViewController
     }
 }

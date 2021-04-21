@@ -20,6 +20,7 @@
 		2BFA8F2D260D5DD800D2E438 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA8F29260D5DD800D2E438 /* Themes.swift */; };
 		2BFA8F2E260D5DD800D2E438 /* UIApplication+activeTraitCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA8F2A260D5DD800D2E438 /* UIApplication+activeTraitCollection.swift */; };
 		2BFA8F36260D60C300D2E438 /* Snippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA8F35260D60C300D2E438 /* Snippet.swift */; };
+		B2F64900263064B0008A2D42 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F648FF263064B0008A2D42 /* TagsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		2BFA8F29260D5DD800D2E438 /* Themes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		2BFA8F2A260D5DD800D2E438 /* UIApplication+activeTraitCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+activeTraitCollection.swift"; sourceTree = "<group>"; };
 		2BFA8F35260D60C300D2E438 /* Snippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippet.swift; sourceTree = "<group>"; };
+		B2F648FF263064B0008A2D42 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				2BFA8ED7260D466500D2E438 /* SceneDelegate.swift */,
 				2BFA8F09260D4B4300D2E438 /* MasterTableViewController.swift */,
 				2BFA8F0E260D504D00D2E438 /* DetailViewController.swift */,
+				B2F648FF263064B0008A2D42 /* TagsViewController.swift */,
 				2BFA8F35260D60C300D2E438 /* Snippet.swift */,
 				2BFA8EDB260D466500D2E438 /* Main.storyboard */,
 				2BFA8F32260D600700D2E438 /* Utils */,
@@ -178,6 +181,7 @@
 				2BFA8F2C260D5DD800D2E438 /* EditableToolbarView.swift in Sources */,
 				2BFA8ED8260D466500D2E438 /* SceneDelegate.swift in Sources */,
 				2BFA8F2E260D5DD800D2E438 /* UIApplication+activeTraitCollection.swift in Sources */,
+				B2F64900263064B0008A2D42 /* TagsViewController.swift in Sources */,
 				2BFA8F2B260D5DD800D2E438 /* CodeFont.swift in Sources */,
 				2BFA8F0F260D504D00D2E438 /* DetailViewController.swift in Sources */,
 			);
@@ -339,7 +343,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cesar.school.jemessonlima.CatalogoSnippets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -359,7 +363,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cesar.school.jemessonlima.CatalogoSnippets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

@@ -8,5 +8,9 @@
 struct Snippet {
     var name: String
     var content: String
-    var tag: String
+    var tag: Tag
+}
+
+struct Tag {
+    var name: String
 }

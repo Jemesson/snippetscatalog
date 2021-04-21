@@ -2,69 +2,77 @@
 //  DetailViewController.swift
 //  CatalogoSnippets
 //
-//  Created by Jemesso Lima on 18/04/21.
+//  Created by Jemesson Lima on 18/04/21.
 //
 
 import UIKit
 import Sourceful
 
 class DetailViewController: UIViewController {
-
     @IBOutlet weak var textView: SyntaxTextView!
-
-    let lexer = SwiftLexer()
+    @IBOutlet weak var menuBar: UINavigationItem!
+    @IBOutlet weak var languageSegmentControl: UISegmentedControl!
+    var selectedLanguage: String = "Swift"
+    var snippet: Snippet? {
+        didSet {
+            refreshUI()
+        }
+    }
+    var sourceCodeTheme: SourceCodeTheme {
+        if UIApplication.activeTraitCollection.userInterfaceStyle == .dark {
+            return DarkTheme()
+        } else {
+            return LightTheme()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         textView.theme = sourceCodeTheme
         textView.delegate = self
-
-        // Attach a toolbar with common key symbols to make typing easier.
         textView.contentTextView.inputAccessoryView = UIView.editingToolbar(
             target: self,
             action: #selector(insertCharacter)
         )
     }
 
-    var snippet: Snippet? {
-        didSet {
-            refreshUI()
+    @IBAction func selectLanguage(_ sender: UISegmentedControl) {
+        let title = languageSegmentControl.titleForSegment(at: languageSegmentControl.selectedSegmentIndex)
+        
+        if(title! == "Swift"){
+            selectedLanguage = "Swift"
+        } else {
+            selectedLanguage = "Python"
         }
-    }
 
-    var sourceCodeTheme: SourceCodeTheme {
-        if UIApplication.activeTraitCollection.userInterfaceStyle == .dark {
-            return DarkTheme()
-       } else {
-           return LightTheme()
-       }
-    }
-
-    /// Called when the user taps a key symbol in our input accessory view.
-    @objc func insertCharacter(_ sender: UIBarButtonItem) {
-        guard let value = UnicodeScalar(sender.tag) else { return }
-        let string = String(value)
-        textView.insertText(string)
-        UIDevice.current.playInputClick()
+        snippet?.content = textView.text
     }
 
     private func refreshUI() {
         loadViewIfNeeded()
-        title = snippet?.name ?? "New Snippet"
+        menuBar.title = snippet?.name ?? "Snippets"
         textView.text = snippet?.content ?? ""
     }
-}
 
-extension DetailViewController: SyntaxTextViewDelegate {
-    /// Send back our Swift lexer for this source code.
-    func lexerForSource(_ source: String) -> Lexer {
-        return lexer
+    @objc func insertCharacter(_ sender: UIBarButtonItem) {
+        guard let value = UnicodeScalar(sender.tag) else { return }
+        textView.insertText(String(value))
+        UIDevice.current.playInputClick()
     }
 }
 
 extension DetailViewController: SnippetSelectionDelegate {
     func snippetSelected(_ newSnippet: Snippet) {
         snippet = newSnippet
+    }
+}
+
+extension DetailViewController: SyntaxTextViewDelegate {
+    func lexerForSource(_ source: String) -> Lexer {
+        if selectedLanguage == "Swift" {
+            return SwiftLexer()
+        }
+        return Python3Lexer();
     }
 }
