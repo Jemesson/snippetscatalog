@@ -29,7 +29,7 @@ class TagsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TagRow", for: indexPath)
 
         cell.textLabel?.text = tags[indexPath.row].name
 

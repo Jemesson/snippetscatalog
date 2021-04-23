@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
         textView.delegate = self
         textView.contentTextView.inputAccessoryView = UIView.editingToolbar(
             target: self,
-            action: #selector(insertCharacter)
+            action: #selector(addToTextView)
         )
     }
 
@@ -55,7 +55,7 @@ class DetailViewController: UIViewController {
         textView.text = snippet?.content ?? ""
     }
 
-    @objc func insertCharacter(_ sender: UIBarButtonItem) {
+    @objc func addToTextView(_ sender: UIBarButtonItem) {
         guard let value = UnicodeScalar(sender.tag) else { return }
         textView.insertText(String(value))
         UIDevice.current.playInputClick()
