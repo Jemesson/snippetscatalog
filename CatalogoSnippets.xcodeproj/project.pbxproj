@@ -20,6 +20,7 @@
 		2BFA8F2D260D5DD800D2E438 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA8F29260D5DD800D2E438 /* Themes.swift */; };
 		2BFA8F2E260D5DD800D2E438 /* UIApplication+activeTraitCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA8F2A260D5DD800D2E438 /* UIApplication+activeTraitCollection.swift */; };
 		2BFA8F36260D60C300D2E438 /* Snippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA8F35260D60C300D2E438 /* Snippet.swift */; };
+		B291C3642635D29600E1B4FE /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B291C3632635D29600E1B4FE /* Tag.swift */; };
 		B2F64900263064B0008A2D42 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F648FF263064B0008A2D42 /* TagsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		2BFA8F29260D5DD800D2E438 /* Themes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		2BFA8F2A260D5DD800D2E438 /* UIApplication+activeTraitCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+activeTraitCollection.swift"; sourceTree = "<group>"; };
 		2BFA8F35260D60C300D2E438 /* Snippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippet.swift; sourceTree = "<group>"; };
+		B291C3632635D29600E1B4FE /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		B2F648FF263064B0008A2D42 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 				2BFA8F0E260D504D00D2E438 /* DetailViewController.swift */,
 				B2F648FF263064B0008A2D42 /* TagsViewController.swift */,
 				2BFA8F35260D60C300D2E438 /* Snippet.swift */,
+				B291C3632635D29600E1B4FE /* Tag.swift */,
 				2BFA8EDB260D466500D2E438 /* Main.storyboard */,
 				2BFA8F32260D600700D2E438 /* Utils */,
 				2BFA8EDE260D466600D2E438 /* Assets.xcassets */,
@@ -180,6 +183,7 @@
 				2BFA8F36260D60C300D2E438 /* Snippet.swift in Sources */,
 				2BFA8F2C260D5DD800D2E438 /* EditableToolbarView.swift in Sources */,
 				2BFA8ED8260D466500D2E438 /* SceneDelegate.swift in Sources */,
+				B291C3642635D29600E1B4FE /* Tag.swift in Sources */,
 				2BFA8F2E260D5DD800D2E438 /* UIApplication+activeTraitCollection.swift in Sources */,
 				B2F64900263064B0008A2D42 /* TagsViewController.swift in Sources */,
 				2BFA8F2B260D5DD800D2E438 /* CodeFont.swift in Sources */,

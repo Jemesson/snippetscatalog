@@ -24,22 +24,20 @@ class MasterTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return snippets.filter{ $0.tag.name == selectedTag.name}.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let row = tableView.dequeueReusableCell(withIdentifier: "SnippetRow", for: indexPath)
+
+        row.textLabel?.text = snippets.filter{ $0.tag.name == selectedTag.name}[indexPath.row].name
         
-        cell.textLabel?.text = snippets.filter{ $0.tag.name == selectedTag.name}[indexPath.row].name
-        
-        return cell
+        return row
     }
 
-    override func tableView(
-        _ tableView: UITableView,
-        didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedSnippet = snippets.filter{ $0.tag.name == selectedTag.name}[indexPath.row]
         delegate?.snippetSelected(selectedSnippet)
         

@@ -38,9 +38,9 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func selectLanguage(_ sender: UISegmentedControl) {
-        let title = languageSegmentControl.titleForSegment(at: languageSegmentControl.selectedSegmentIndex)
-        
-        if(title! == "Swift"){
+        let language = languageSegmentControl.titleForSegment(at: languageSegmentControl.selectedSegmentIndex)
+
+        if(language! == "Swift"){
             selectedLanguage = "Swift"
         } else {
             selectedLanguage = "Python"

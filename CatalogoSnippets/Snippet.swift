@@ -10,7 +10,3 @@ struct Snippet {
     var content: String
     var tag: Tag
 }
-
-struct Tag {
-    var name: String
-}

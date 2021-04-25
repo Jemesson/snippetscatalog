@@ -12,13 +12,13 @@ protocol SelectedTagDelegate: AnyObject {
 }
 
 class TagsViewController: UITableViewController {
+    weak var delegate: SelectedTagDelegate?
+
     var tags: [Tag] = [
         Tag(name: "Networking"),
         Tag(name: "Persistência"),
         Tag(name: "Layouts")
     ]
-
-    weak var delegate: SelectedTagDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +29,11 @@ class TagsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TagRow", for: indexPath)
+        let row = tableView.dequeueReusableCell(withIdentifier: "TagRow", for: indexPath)
 
-        cell.textLabel?.text = tags[indexPath.row].name
+        row.textLabel?.text = tags[indexPath.row].name
 
-        return cell
+        return row
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

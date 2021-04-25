@@ -16,18 +16,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
 
         guard
-            let splitViewController = window?.rootViewController as? UISplitViewController,
-            let firstMasterNavController = splitViewController.viewControllers.first as? UINavigationController,
-            let tagsViewController = firstMasterNavController.viewControllers.first as? TagsViewController,
-            let secondSplitViewController = splitViewController.viewControllers.last as? UISplitViewController,
-            let middleNavController = secondSplitViewController.viewControllers.first as? UINavigationController,
-            let masterViewController = middleNavController.viewControllers.first as? MasterTableViewController,
-            let detailViewController = secondSplitViewController.viewControllers.last as? DetailViewController
+            let uiSplitViewController = window?.rootViewController as? UISplitViewController,
+            let uiNavController = uiSplitViewController.viewControllers.first as? UINavigationController,
+            let tagsViewController = uiNavController.viewControllers.first as? TagsViewController,
+            let uiSecondSplitViewController = uiSplitViewController.viewControllers.last as? UISplitViewController,
+            let middleNavController = uiSecondSplitViewController.viewControllers.first as? UINavigationController,
+            let masterTableViewController = middleNavController.viewControllers.first as? MasterTableViewController,
+            let detailViewController = uiSecondSplitViewController.viewControllers.last as? DetailViewController
         else { fatalError() }
-        
-        let firstSnippet = masterViewController.snippets.first
-        detailViewController.snippet = firstSnippet
-        masterViewController.delegate = detailViewController
-        tagsViewController.delegate = masterViewController
+
+        detailViewController.snippet = masterTableViewController.snippets.first
+        masterTableViewController.delegate = detailViewController
+        tagsViewController.delegate = masterTableViewController
     }
 }
